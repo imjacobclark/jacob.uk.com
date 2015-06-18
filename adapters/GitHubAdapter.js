@@ -12,12 +12,8 @@ GitHubAdapter.prototype.getProfileData = function(){
             var latestData = [];
             JSON.parse(data).forEach((data, i) => {
                 if(i >= 5) return
-                                    console.log(i)
-
                 latestData.push(data);
             });
-
-            console.log(latestData)
 
             resolve(latestData)
         }).catch(function(error){ 

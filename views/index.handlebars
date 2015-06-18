@@ -17,9 +17,32 @@
     <div class="twelve columns">
         <h4>Recent blog posts:</h4>
 
-        <ul>
+        <ul class="blog-posts">
 	        {{#each posts}}
-			    <li><a href="http://blog.jacob.uk.com{{this}}">{{@key}}</a></li>
+			    <li>
+			    	<article>	
+				    	<a href="http://blog.jacob.uk.com{{this.href}}">{{@key}}</a>
+				    	<p>{{this.excerpt}}<p>
+				    </article>
+			    </li>
+			{{/each}}
+		</ul>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="twelve columns">
+        <h4>Recent <a href="http://github.com/imjacobclark">GitHub</a> activity:</h4>
+
+        <ul class="github-activity-posts">
+	        {{#each github}}
+			    <li>
+			    	<article>	
+				    	<p><a href="{{this.repo.url}}">{{this.repo.name}}</a> - {{this.payload.ref}} - {{this.payload.commits.0.message}}<p>
+				    </article>
+			    </li>
 			{{/each}}
 		</ul>
     </div>

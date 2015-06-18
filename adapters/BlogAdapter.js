@@ -8,14 +8,37 @@ var BlogAdapter = function(){
 BlogAdapter.prototype.getData = function() {
     return new Promise(function(resolve, reject){
         utilities.doHTTPRequest(this.url).then(function(data){
+            /*
+            * The following code is hacky and expensive, I wish Ghost would hurry up and ship it's API...
+            */
+
         	var $ = cheerio.load(data);
 
-        	var posts = {};
+        	var titles = [];
+            var links = [];
+            var excerpts = [];
 
         	var links = $('.post-title').each(function(i, link){
         		if(i >= 5) return;
-        		posts[$(link)[0].children[0].next.attribs.title] = $(link)[0].children[0].next.attribs.href;
+
+                titles.push($(link)[0].children[0].next.attribs.title);
+                links.push($(link)[0].children[0].next.attribs.href);
         	});
+
+            var links = $('.post-excerpt').each(function(i, excerpt){
+                if(i >= 5) return;
+
+                excerpts.push(excerpt.children[0].data.slice(0,150) + "...");
+            });
+
+            var posts = {};
+
+            titles.forEach(function(title, index){
+                posts[title] = {
+                    href: links[index],
+                    excerpt: excerpts[index]
+                }
+            })
 
             resolve(posts);
         }).catch(function(error){ 

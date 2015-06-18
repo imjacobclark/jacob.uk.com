@@ -10,6 +10,7 @@ GitHubAdapter.prototype.getProfileData = function(){
     return new Promise(function(resolve, reject){
         utilities.doHTTPSRequest(this.url, this.path).then(function(data){
             var latestData = [];
+            
             JSON.parse(data).forEach((data, i) => {
                 if(i >= 5) return
                 latestData.push(data);

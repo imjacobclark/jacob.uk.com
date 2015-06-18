@@ -9,9 +9,9 @@ router.get('/', function(req, res, next) {
     var githubadapter = new GitHubAdapter();
 
     Promise.all([blogadapter.getData(), githubadapter.getProfileData()])
-    	.then(values => {
-			res.render('index', {posts: values[0], github: values[1]});
-		});
+            .then(values => {
+    res.render('index', {posts: values[0], github: values[1]});
+    });
 });
 
 module.exports = router;

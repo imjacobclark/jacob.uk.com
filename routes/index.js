@@ -10,8 +10,11 @@ router.get('/', function(req, res, next) {
 
     Promise.all([blogadapter.getData(), githubadapter.getProfileData()])
             .then(values => {
-    res.render('index', {posts: values[0], github: values[1]});
-    });
+                res.render('index', {posts: values[0], github: values[1]});
+            }).catch(e => {
+                res.status(500);
+                res.render('error');
+            });
 });
 
 module.exports = router;

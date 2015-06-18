@@ -34,7 +34,6 @@ BlogAdapter.prototype.getData = function() {
             var posts = {};
 
             titles.forEach(function(title, index){
-                console.log(links[index])
                 posts[title] = {
                     href: links[index],
                     excerpt: excerpts[index]

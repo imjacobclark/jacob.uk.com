@@ -7,8 +7,10 @@ router.get('/', function(req, res, next) {
     var blogadapter = new BlogAdapter();
 
     blogadapter.getData().then(function(data){
-        res.render('index');
+    	console.log(data);
+        res.render('index', {posts: data});
     }).catch(function(error){
+    	console.log(error)
         res.status(500);
         res.render('error');
     })

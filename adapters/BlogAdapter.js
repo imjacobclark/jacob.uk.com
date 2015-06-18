@@ -18,14 +18,14 @@ BlogAdapter.prototype.getData = function() {
             var links = [];
             var excerpts = [];
 
-        	var links = $('.post-title').each(function(i, link){
+        	$('.post-title').each(function(i, link){
         		if(i >= 5) return;
 
                 titles.push($(link)[0].children[0].next.attribs.title);
                 links.push($(link)[0].children[0].next.attribs.href);
         	});
 
-            var links = $('.post-excerpt').each(function(i, excerpt){
+            $('.post-excerpt').each(function(i, excerpt){
                 if(i >= 5) return;
 
                 excerpts.push(excerpt.children[0].data.slice(0,150) + "...");
@@ -34,6 +34,7 @@ BlogAdapter.prototype.getData = function() {
             var posts = {};
 
             titles.forEach(function(title, index){
+                console.log(links[index])
                 posts[title] = {
                     href: links[index],
                     excerpt: excerpts[index]

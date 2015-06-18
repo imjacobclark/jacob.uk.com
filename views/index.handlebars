@@ -40,7 +40,7 @@
 	        {{#each github}}
 			    <li>
 			    	<article>	
-				    	<p><a href="http://github.com/{{this.repo.name}}">{{this.repo.name}}</a> - {{this.payload.ref}} - {{this.payload.commits.0.message}}<p>
+				    	<p><strong>Repository:</strong> <a href="http://github.com/{{this.repo.name}}">{{this.repo.name}}</a> - <strong>Branch:</strong> {{this.payload.ref}} - <strong>Commit:</strong> {{this.payload.commits.0.message}}<p>
 				    </article>
 			    </li>
 			{{/each}}

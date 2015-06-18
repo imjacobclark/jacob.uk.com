@@ -9,7 +9,17 @@ var GitHubAdapter = function(){
 GitHubAdapter.prototype.getProfileData = function(){
     return new Promise(function(resolve, reject){
         utilities.doHTTPSRequest(this.url, this.path).then(function(data){
-            resolve(data)
+            var latestData = [];
+            JSON.parse(data).forEach((data, i) => {
+                if(i >= 5) return
+                                    console.log(i)
+
+                latestData.push(data);
+            });
+
+            console.log(latestData)
+
+            resolve(latestData)
         }).catch(function(error){ 
             reject(error);
         });

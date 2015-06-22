@@ -2,7 +2,6 @@ var utilities = require(__dirname + '/../lib/utilities');
 
 var GitHubAdapter = function(){
     this.url = 'api.github.com'
-    this.path = '/users/imjacobclark/events/public'
     this.username = 'imjacobclark'
 
     this.headers = {
@@ -13,9 +12,9 @@ var GitHubAdapter = function(){
 
 GitHubAdapter.prototype.getProfileData = function(){
     return new Promise(function(resolve, reject){
-        utilities.doHTTPSRequest(this.url, this.path, this.headers).then(function(data){
+        utilities.doHTTPSRequest(this.url, '/users/imjacobclark/events/public', this.headers).then(function(data){
             var latestData = [];
-            
+
             JSON.parse(data).forEach((data, i) => {
                 if(i >= 5) return
 
@@ -25,6 +24,45 @@ GitHubAdapter.prototype.getProfileData = function(){
             });
 
             resolve(latestData)
+        }).catch(function(error){ 
+            reject(error);
+        });
+    }.bind(this));
+}
+
+GitHubAdapter.prototype.getRepositories = function(){
+    return new Promise(function(resolve, reject){
+        utilities.doHTTPSRequest(this.url, '/users/imjacobclark/repos', this.headers).then(function(data){
+            var data = JSON.parse(data);
+
+            var stats = {
+                projects: data.length,
+                forks: 0,
+                languages: {
+
+                },
+                forkedProjects: {
+
+                }
+            }
+
+            data.forEach(function(repo){
+                if(repo.fork === true){
+                    stats["forks"] = stats["forks"] + 1;
+                    stats.forkedProjects[repo.name] = repo.html_url;
+                }
+
+                if(repo.language !== null){
+                    if(stats.languages[repo.language] == undefined){
+                        stats.languages[repo.language] = 0;
+                    }else{
+                        stats.languages[repo.language] = stats.languages[repo.language] + 1;
+                    }
+                }
+
+            })
+
+            resolve(stats)
         }).catch(function(error){ 
             reject(error);
         });

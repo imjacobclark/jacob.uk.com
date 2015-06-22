@@ -27,6 +27,22 @@
 			    </li>
 			{{/each}}
 		</ul>
+
+		<small>Read my entire blog over at <a href="http://blog.jacob.uk.com">http://blog.jacob.uk.com</a>.</small>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <div class="twelve columns">
+        <h4><a href="http://github.com/imjacobclark">Open Source:</a></h4>
+			<p>So far I have contributed to <strong>{{repositories.projects}}</strong> open source projects on GitHub. Out of those projects <strong>{{repositories.forks}}</strong> were forked, including {{#each repositories.forkedProjects}}<strong><a href="{{this}}">{{@key}}</a>{{#if @last}}.{{else}},{{/if}} </strong>{{/each}}</p>
+
+			<p>Development languages include: {{#each repositories.languages}}<strong>{{@key}}{{#if @last}}.{{else}},{{/if}} </strong>{{/each}}</p>
+		</ul>
+
+		<small>Check me out on GitHub <a href="http://github.com/imjacobclark">http://github.com/imjacobclark</a>.</small>
     </div>
 </div>
 
@@ -38,9 +54,14 @@
 
         <ul class="github-activity-posts">
 	        {{#each github}}
-			    <li>
+			    <li class="one-half column post">
 			    	<article>	
-				    	<p><strong>Date:</strong> {{this.created_at}} - <strong>Repository:</strong> <a href="http://github.com/{{this.repo.name}}">{{this.repo.name}}</a> - <strong>Branch:</strong> {{this.payload.ref}} - <strong>Commit:</strong> {{this.payload.commits.0.message}}<p>
+				    	<p>
+							<strong>Repository:</strong> <a href="http://github.com/{{this.repo.name}}">{{this.repo.name}}</a><br/> 
+							<strong>Branch:</strong> {{this.payload.ref}}<br/> 
+					    	<strong>Date:</strong> {{this.created_at}}<br/>
+					    	<strong>Commit:</strong> {{this.payload.commits.0.message}}
+				    	<p>
 				    </article>
 			    </li>
 			{{/each}}

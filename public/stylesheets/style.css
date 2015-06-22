@@ -42,3 +42,7 @@ ul {
 	color: #666;
 	text-decoration: none;
 }
+
+.header .social-icons a{
+	padding-right: 20px;
+}

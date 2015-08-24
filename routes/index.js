@@ -9,9 +9,9 @@ router.get('/', function(req, res, next) {
     var blogadapter = new BlogAdapter();
     var githubadapter = new GitHubAdapter();
 
-    Promise.all([blogadapter.getData(), githubadapter.getProfileData(), githubadapter.getRepositories()])
+    Promise.all([githubadapter.getProfileData(), githubadapter.getRepositories()])
             .then(values => {
-                res.render('index', {posts: values[0], github: values[1], repositories: values[2]});
+                res.render('index', {github: values[1], repositories: values[2]});
             }).catch(e => {
                 res.status(500);
                 console.log(e)

@@ -1,7 +1,5 @@
-var express = require('express');
-var router = express.Router();
-var BlogAdapter = require(__dirname + '/../adapters/BlogAdapter')
-var GitHubAdapter = require(__dirname + '/../adapters/GitHubAdapter')
+var express = require('express'),
+  router = express.Router();
 
 
 /* GET home page. */

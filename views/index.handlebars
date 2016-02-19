@@ -26,11 +26,25 @@
     <body>
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Jacob Clark</a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                    <a class="navbar-brand" href="#">Jacob Clark</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="https://blog.jacob.uk.com">Blog</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            </div>
-        </div>
+          </div>
 
         <div class="section">
             <div class="container">
@@ -57,6 +71,10 @@
                     Liverpool John Lennon Airport, Persil, McBride Group, Advanced Foster Group,
                     Wigan &amp; Leigh College, Barton Park and Just 4 Rugby.
                 </p>
+                
+                <br/><br/>
+                
+                <p><a href="https://blog.jacob.uk.com">Visit my blog</a></p>
                 
                 <br/><br/>
                 
@@ -130,16 +148,6 @@
                     <div class="col-md-12">
                         <h1>About this site</h1>
                         <p>jacob.uk.com is built in Node.js, Express & Bootstrap, bundled into a Docker container with all the source code avaiable on GitHub. The container is hosted on a Digital Ocean virtual machine running Ubuntu whilst exposing the application running on the container to a particular port, this port is then proxied out and cached via nginx over a secure TLS connection with a signed certificate from Let's Encrypt, nginx is then fronted by CloudFlare for both DNS (domain lookup) and distributed static cache, CloudFlare will finally deliver jacob.uk.com over a secure TLS connection via HTTP/2 + SPDY to your client.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <script async src="https://static.medium.com/embed.js"></script><a class="m-profile" data-width="100%" data-border="false" href="https://medium.com/@imjacobclark">Jacob Clark</a>
                     </div>
                 </div>
             </div>

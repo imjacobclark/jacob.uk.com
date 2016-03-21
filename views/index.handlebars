@@ -1,4 +1,4 @@
-<html>
+<html ng-app="jacobukcom">
     <head>
         <title>Jacob Clark</title>
         
@@ -9,11 +9,18 @@
         <meta name="robots" content="index, follow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
+        <style>
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+               display: none !important;
+            }
+        </style>
+        
+        <link href="/stylesheets/font-awesome-1458557676.min.css" rel="stylesheet" type="text/css">
+        <link href="/stylesheets/bootstrap-1458557676.css" rel="stylesheet" type="text/css">
+        
+        <script type="text/javascript" src="/javascript/jquery-1458557676.min.js"></script>
+        <script type="text/javascript" src="/javascript/bootstrap-1458557676.min.js"></script>
+        <script src="/javascript/angular-1458557676.min.js"></script>
         
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -26,7 +33,7 @@
             ga('send', 'pageview');
         </script>
     </head>
-    <body>
+    <body ng-cloak>
         <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -74,7 +81,7 @@
                     <div class="col-md-8">
                         <h3>About me</h3>
                         <p>
-                            Experienced Senior Software Engineer/Web Developer and Technical Architect specialising in modern digital technologies currently working on a new business offering at <a href="http://rentalcars.com">Rentalcars.com</a>.
+                            Experienced Senior Software Engineer/Web Developer and Technical Architect specialising in modern digital technologies currently working at <a href="http://rentalcars.com">Rentalcars.com</a>.
 
                             
                             <br>
@@ -151,22 +158,25 @@
                     <div class="col-md-12">
                         <h1>Projects</h1>
                         <ul>
-                            <li><a href="http://github.com/imjacobclark/cors-container">cors-container (a CORS proxy for development bundled as a container)</a></li>
-                            <li><a href="https://chrome.google.com/webstore/detail/github-notifier/ekjiicgclcmjodoijejldoohdlomjlhl?hl=en">GitHub Notifier extension for Chrome</a></li>
-                            <li><a href="http://ngaas.jacob.uk.com">Name Generator (as a service)</a></li>
-                            <li><a href="http://devnews.today">Developer News</a></li>
+                            <li><a href="https://play.google.com/store/apps/details?id=jacob.uk.com.usbcheck">USBCheck - Android App to detect whether your USB-C to USB-A cables are safe and compliant.</a> [Android]</li>
+                            <li><a href="http://github.com/imjacobclark/cors-container">cors-container (a CORS proxy for development bundled as a container)</a> [Web]</li>
+                            <li><a href="https://chrome.google.com/webstore/detail/github-notifier/ekjiicgclcmjodoijejldoohdlomjlhl?hl=en">GitHub Notifier extension for Chrome</a> [Chrome Extension]</li>
+                            <li><a href="http://ngaas.jacob.uk.com">Name Generator (as a service)</a> [Web]</li>
+                            <li><a href="http://devnews.today">Developer News</a> [Web]</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section">
+        <div class="section" ng-controller="OpenSourceController">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <h1>Open Source</h1>
-                        <p>I have contributed to several large open source projects, including; <a href="http://svn.php.net/viewvc?view=revision&revision=333100">PHP</a>, <a href="https://hg.mozilla.org/mozilla-central/rev/b37785254785">Firefox</a>, <a href="https://gerrit.wikimedia.org/r/#/c/110693/7">MediaWiki</a>, <a href="https://github.com/mitchellh/vagrant/pulls?q=is%3Apr+author%3Aimjacobclark+is%3Aclosed">Vagrant</a>, <a href="https://github.com/gruntjs/grunt-init/pulls?q=is%3Apr+author%3Aimjacobclark+is%3Aclosed">Grunt</a> and <a href="https://github.com/kubernetes/heapster/pulls?q=is%3Apr+author%3Aimjacobclark+is%3Aclosed">Google Heapster</a>.
+                        <p>I have contributed to several large open source projects, including; <a href="http://svn.php.net/viewvc?view=revision&revision=333100">PHP</a>, <a href="https://hg.mozilla.org/mozilla-central/rev/b37785254785">Firefox</a>, <a href="https://gerrit.wikimedia.org/r/#/c/110693/7">MediaWiki</a>, <a href="https://github.com/mitchellh/vagrant/pulls?q=is%3Apr+author%3Aimjacobclark+is%3Aclosed">Vagrant</a>, <a href="https://github.com/gruntjs/grunt-init/pulls?q=is%3Apr+author%3Aimjacobclark+is%3Aclosed">Grunt</a> and <a href="https://github.com/kubernetes/heapster/pulls?q=is%3Apr+author%3Aimjacobclark+is%3Aclosed">Google Heapster</a>.</p>
+                        
+                        <p>I have {[{gitHubRepos.length}]} open source repositories on GitHub! Check them out at <a href="https://github.com/imjacobclark">github.com/imjacobclark</a>.</p>
                     </div>
                 </div>
             </div>
@@ -177,7 +187,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1>About this site</h1>
-                        <p>jacob.uk.com is built in Node.js, Express & Bootstrap, bundled into a Docker container with all the source code avaiable on GitHub. The container is hosted on a Digital Ocean virtual machine running Ubuntu whilst exposing the application running on the container to a particular port, this port is then proxied out and cached via nginx over a secure TLS connection with a signed certificate from Let's Encrypt, nginx is then fronted by CloudFlare for both DNS (domain lookup) and distributed static cache, CloudFlare will finally deliver jacob.uk.com over a secure TLS connection via HTTP/2 + SPDY to your client.</p>
+                        <p>jacob.uk.com is built in Node.js, Express & Bootstrap bundled into a Docker container with all the source code avaiable on GitHub. The container is hosted on a Digital Ocean virtual machine running Ubuntu whilst exposing the application running on the container to a particular port, this port is then proxied out and cached via nginx over a secure TLS connection with a signed certificate from Let's Encrypt. nginx is then fronted by CloudFlare for both DNS (domain lookup) and distributed static cache, CloudFlare will finally deliver jacob.uk.com over a secure TLS connection via HTTP/2 + SPDY to your client. Your client will then render the HTML and execute a portion of Angular.js and track your visit through Gaug.es and Google Analytics. Once everything has completed, your browser will heavily cache this webpage (1 day).</p>
                     </div>
                 </div>
             </div>
@@ -199,11 +209,11 @@
             </div>
         </div>
 
-        <footer class="section">
+        <footer class="section" ng-controller="FooterController">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-12">
-                        <p>&copy; Jacob Clark 2016</p>
+                        <p>{[{name}]} &middot; &copy; Jacob Clark 2016</p>
                     </div>
                 </div>
             </div>
@@ -212,16 +222,40 @@
         <script type="text/javascript">
             var _gauges = _gauges || [];
             (function() {
-            var t   = document.createElement('script');
-            t.type  = 'text/javascript';
-            t.async = true;
-            t.id    = 'gauges-tracker';
-            t.setAttribute('data-site-id', '55833d2dde2e262dc9002a87');
-            t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
-            t.src = 'https://track.gaug.es/track.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(t, s);
+                var t   = document.createElement('script');
+                t.type  = 'text/javascript';
+                t.async = true;
+                t.id    = 'gauges-tracker';
+                t.setAttribute('data-site-id', '55833d2dde2e262dc9002a87');
+                t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+                t.src = 'https://track.gaug.es/track.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(t, s);
             })();
+        </script>
+        
+        <script>
+            angular.module('jacobukcom', [])
+                .config(['$interpolateProvider', function($interpolateProvider) {
+                    $interpolateProvider.startSymbol('{[{');
+                    $interpolateProvider.endSymbol('}]}');
+                }])
+                .controller('OpenSourceController', ['$scope', '$http', function($scope, $http){
+                    $http({
+                        method: 'GET',
+                        url: 'https://api.github.com/users/imjacobclark/repos'
+                    }).then(function(repos){
+                        $scope.gitHubRepos = repos.data;
+                    });
+                }])
+                .controller('FooterController', ['$scope', '$http', function($scope, $http){
+                    $http({
+                        method: 'GET',
+                        url: 'https://ngaas.jacob.uk.com'
+                    }).then(function(name){
+                        $scope.name = name.data.name;
+                    });
+                }])
         </script>
     </body>
 </html>

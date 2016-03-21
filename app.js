@@ -11,8 +11,11 @@ var routes = require('./routes/index');
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
+
 app.engine('handlebars', exphbs({}));
 app.set('view engine', 'handlebars');
+
+app.disable('x-powered-by');
 
 app.use(minifyHTML({
     override:      true,
@@ -31,7 +34,7 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: "604800000" }));
 
 app.use('/', routes);
 

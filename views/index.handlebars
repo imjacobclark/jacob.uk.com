@@ -251,7 +251,7 @@
                 .controller('FooterController', ['$scope', '$http', function($scope, $http){
                     $http({
                         method: 'GET',
-                        url: 'https://ngaas.jacob.uk.com'
+                        url: 'https://ngaas.api.jacob.uk.com'
                     }).then(function(name){
                         $scope.name = name.data.name;
                     });

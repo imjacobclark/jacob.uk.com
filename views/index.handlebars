@@ -243,7 +243,7 @@
                 .controller('OpenSourceController', ['$scope', '$http', function($scope, $http){
                     $http({
                         method: 'GET',
-                        url: 'https://api.github.com/users/imjacobclark/repos'
+                        url: 'https://api.github.com/users/imjacobclark/repos?per_page=100'
                     }).then(function(repos){
                         $scope.gitHubRepos = repos.data;
                     });

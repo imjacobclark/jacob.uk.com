@@ -21,7 +21,7 @@ public class HomepageResource {
 
     @GET
     @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
-    public HomepageView getPerson() {
+    public HomepageView getHomepage() {
         return new HomepageView(this.httpClient);
     }
 }

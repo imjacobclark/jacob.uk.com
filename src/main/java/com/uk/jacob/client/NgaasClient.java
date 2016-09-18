@@ -15,20 +15,13 @@ public class NgaasClient {
         this.httpClient = httpClient;
     }
 
-    public String getRandomName() {
+    public String getRandomName() throws IOException {
         // TODO: Move this URL into config
-        String response = null;
-        try {
-            response = new HttpUtils(httpClient).doHttpGetRequest("https://ngaas.api.jacob.uk.com");
-        } catch (IOException e) {
-            System.out.println("here");
-            e.printStackTrace();
-            System.out.println(e);
-        }
+        String response = new HttpUtils(httpClient).doHttpGetRequest("https://ngaas.api.jacob.uk.com");
         JSONObject object = new JSONObject(response);
 
+        System.out.println("here");
         System.out.println(object.get("name"));
-
-        return "test";
+        return object.get("name").toString();
     }
 }

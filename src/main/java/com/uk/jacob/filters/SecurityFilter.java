@@ -16,6 +16,6 @@ public class SecurityFilter implements ContainerResponseFilter {
         headers.add("x-content-type-options", "nosniff");
         headers.add("x-frame-options", "SAMEORIGIN");
         headers.add("x-xss-protection", "1;  mode=block");
-        headers.add("content-security-policy", "default-src https:");
+        headers.add("content-security-policy", "default-src https:; script-src 'unsafe-inline' www.google-analytics.com ajax.googleapis.com platform.twitter.com;");
     }
 }

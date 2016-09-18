@@ -19,9 +19,6 @@ public class NgaasClient {
         // TODO: Move this URL into config
         String response = new HttpUtils(httpClient).doHttpGetRequest("https://ngaas.api.jacob.uk.com");
         JSONObject object = new JSONObject(response);
-
-        System.out.println("here");
-        System.out.println(object.get("name"));
         return object.get("name").toString();
     }
 }

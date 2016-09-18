@@ -1,9 +1,6 @@
 httpClient:
   timeout: 500ms
 
-http:
-  maxIdleTime: 60s
-
 server:
   type: simple
   applicationContextPath: /

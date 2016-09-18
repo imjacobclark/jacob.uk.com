@@ -5,6 +5,7 @@ import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.core.MultivaluedMap;
 import java.io.IOException;
+import java.util.Date;
 
 public class CacheControlFilter implements ContainerResponseFilter {
 
@@ -13,5 +14,6 @@ public class CacheControlFilter implements ContainerResponseFilter {
         MultivaluedMap<String, Object> headers = containerResponseContext.getHeaders();
 
         headers.add("Cache-Control", "public, max-age=86400");
+        headers.add("Expires", new Date().getTime() + 86400);
     }
 }

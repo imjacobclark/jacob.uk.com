@@ -1,6 +1,9 @@
 httpClient:
   timeout: 500ms
 
+http:
+  maxIdleTime: 60s
+
 server:
   type: simple
   applicationContextPath: /
@@ -10,5 +13,3 @@ server:
     port: 8080
   gzip:
     bufferSize: 8KiB
-  maxIdleTime: 60s
-  

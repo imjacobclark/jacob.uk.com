@@ -1,2 +1,12 @@
 httpClient:
   timeout: 500ms
+
+server:
+  type: simple
+  applicationContextPath: /
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 8080
+  gzip:
+    bufferSize: 8KiB

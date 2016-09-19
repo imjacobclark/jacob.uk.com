@@ -37,7 +37,7 @@ public class websiteApplication extends Application<websiteConfiguration> {
 
         environment.servlets().addFilter("AssetCacheControlFilter", new AssetCacheControlFilter())
                 .addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/public/*");
-        
+
         environment.jersey().register(new SecurityFilter());
         environment.jersey().register(new HomepageResource(httpClient));
     }

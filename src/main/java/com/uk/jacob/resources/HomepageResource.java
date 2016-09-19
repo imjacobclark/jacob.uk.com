@@ -11,7 +11,6 @@ import javax.ws.rs.core.MediaType;
 import java.util.concurrent.TimeUnit;
 
 @Path("/")
-@Produces(MediaType.TEXT_HTML)
 public class HomepageResource {
     private HttpClient httpClient;
 
@@ -20,6 +19,7 @@ public class HomepageResource {
     }
 
     @GET
+    @Produces(MediaType.TEXT_HTML)
     @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
     public HomepageView getHomepage() {
         return new HomepageView(this.httpClient);

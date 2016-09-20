@@ -9,6 +9,6 @@ services:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker build -t imjacobclark/jacob.uk.com .
-      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker login --username="$DOCKER_USERNAME" --password="$DOCKER_PASSWORD";
       docker push imjacobclark/jacob.uk.com;
     fi

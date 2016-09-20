@@ -7,7 +7,7 @@ It is also possible to run up this app with Docker - which will mount the code, 
 
 Travis-CI is enabled for this project which builds a new Docker image on every successful build and pushes the artefact to the Dockerhub.
 
-The produced Docker image will then be baked onto a machine image through Packer and deployed onto a Digital Ocean droplet. 
+The produced Docker image will then be baked into a machine image through Packer and deployed onto a Digital Ocean droplet. 
 
 #### Building
 

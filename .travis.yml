@@ -1,0 +1,14 @@
+sudo: required
+language: java
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk6
+services:
+  - docker
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker build -t imjacobclark/jacob.uk.com .
+      docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker push imjacobclark/jacob.uk.com;
+    fi

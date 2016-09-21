@@ -15,11 +15,6 @@ public class HomepageView extends View {
         this.httpClient = httpClient;
     }
     
-    public HomepageAMPView(HttpClient httpClient) {
-        super("homepage-amp.mustache");
-        this.httpClient = httpClient;
-    }
-
     public String getRepositoriesTotalCount() throws IOException {
         return new GitHubClient(httpClient).getRepositoriesTotalCount("imjacobclark").toString();
     }

@@ -3,13 +3,12 @@
 
 [![Build Status](https://travis-ci.org/imjacobclark/jacob.uk.com.svg)](https://travis-ci.org/imjacobclark/jacob.uk.com)
 
-[https://www.jacob.uk.com](jacob.uk.com) is a Java 8 Dropwizard application, it is built with Maven in order to produce an über jar which can be deployed. 
+[https://www.jacob.uk.com](jacob.uk.com) is a Java 8 Dropwizard application, it is built into an über jar with Maven. 
 
-It is also possible to run up this app with Docker - which will mount the code, built it through Maven and run the jar.
+Travis-CI is enabled for this project which builds a new Docker image on every successful build and pushes the artefact to the Dockerhub. In production the Docker image is baked onto a machine image with Packer and deployed onto a Digital Ocean droplet. 
 
-Travis-CI is enabled for this project which builds a new Docker image on every successful build and pushes the artefact to the Dockerhub.
+[https://www.jacob.uk.com](jacob.uk.com) sports a responsive mobile friendly webpage for desktops and tablets, it also supports AMP for mobile devices. It is progressively enhanced through semantic HTML5 and as a result accessible to screen readers and text based web browsers.
 
-The produced Docker image will then be baked into a machine image through Packer and deployed onto a Digital Ocean droplet. 
 
 #### Building
 

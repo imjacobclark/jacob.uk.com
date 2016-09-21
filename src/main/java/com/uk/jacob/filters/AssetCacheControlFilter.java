@@ -15,8 +15,7 @@ public class AssetCacheControlFilter implements Filter {
             throws IOException, ServletException {
 
         HttpServletResponse httpServletResponse = ((HttpServletResponse) response);
-        httpServletResponse.addHeader("Cache-Control", "public, max-age=86400");
-        httpServletResponse.addHeader("Cache-Control", "immutable");
+        httpServletResponse.addHeader("Cache-Control", "public, max-age=86400, immutable");
 
         chain.doFilter(request, httpServletResponse);
     }

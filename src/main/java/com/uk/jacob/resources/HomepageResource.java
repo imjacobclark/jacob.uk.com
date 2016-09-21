@@ -1,6 +1,7 @@
 package com.uk.jacob.resources;
 
 import com.uk.jacob.views.HomepageView;
+import com.uk.jacob.views.HomepageAMPView;
 import io.dropwizard.jersey.caching.CacheControl;
 import org.apache.http.client.HttpClient;
 

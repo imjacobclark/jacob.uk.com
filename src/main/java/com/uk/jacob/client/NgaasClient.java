@@ -8,16 +8,21 @@ import java.io.IOException;
 
 
 public class NgaasClient {
-    private HttpClient httpClient;
+    private HttpUtils httpUtils;
 
-    public NgaasClient(HttpClient httpClient){
-        this.httpClient = httpClient;
+    public NgaasClient(final HttpClient httpClient){
+        this.httpUtils = new HttpUtils(httpClient);
+    }
+
+    public NgaasClient(final HttpUtils httpUtils){
+        this.httpUtils = httpUtils;
     }
 
     public String getRandomName() throws IOException {
         // TODO: Move this URL into config
-        String response = new HttpUtils(httpClient).doHttpGetRequest("https://ngaas.api.jacob.uk.com");
-        JSONObject object = new JSONObject(response);
+        final String response = httpUtils.doHttpGetRequest("https://ngaas.api.jacob.uk.com");
+        final JSONObject object = new JSONObject(response);
+
         return object.get("name").toString();
     }
 }

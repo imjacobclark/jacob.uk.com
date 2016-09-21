@@ -1,6 +1,8 @@
 # jacob.uk.com
 ### My personal website
 
+[![Build Status](https://travis-ci.org/imjacobclark/jacob.uk.com.svg)](https://travis-ci.org/imjacobclark/jacob.uk.com)
+
 [https://www.jacob.uk.com](jacob.uk.com) is a Java 8 Dropwizard application, it is built with Maven in order to produce an über jar which can be deployed. 
 
 It is also possible to run up this app with Docker - which will mount the code, built it through Maven and run the jar.

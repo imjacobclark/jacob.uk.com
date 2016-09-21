@@ -24,4 +24,12 @@ public class HomepageResource {
     public HomepageView getHomepage() {
         return new HomepageView(this.httpClient);
     }
+    
+    @Path("/amp")
+    @GET
+    @Produces(MediaType.TEXT_HTML)
+    @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
+    public HomepageAMPView getHomepageAMP() {
+        return new HomepageAMPView(this.httpClient);
+    }
 }

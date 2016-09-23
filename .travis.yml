@@ -5,6 +5,7 @@ jdk:
 services:
   - docker
 after_success:
+  - mvn clean test jacoco:report coveralls:report
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
       docker build -t imjacobclark/jacob.uk.com .;
       docker login --username="$DOCKER_USERNAME" --password="$DOCKER_PASSWORD";

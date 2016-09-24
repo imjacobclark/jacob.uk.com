@@ -1,6 +1,5 @@
 httpClient:
   timeout: 500ms
-
 server:
   type: simple
   applicationContextPath: /
@@ -10,3 +9,8 @@ server:
     port: 8080
   gzip:
     bufferSize: 8KiB
+metrics:
+  reporters:
+    - type: console
+      timeZone: UTC
+      output: stdout

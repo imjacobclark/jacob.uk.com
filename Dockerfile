@@ -1,6 +1,6 @@
-FROM openjdk:8u92-jre-alpine
+FROM openjdk:8u92-jdk-alpine
 
-ADD ./* /data/app/
+ADD ./ /website/
 
 ENV MAVEN_VERSION="3.3.9" \
     M2_HOME=/usr/lib/mvn
@@ -14,10 +14,10 @@ RUN apk add --update wget && \
   apk del wget && \
   rm /tmp/* /var/cache/apk/* 
 
-RUN cd /data/app && \
-    mvn clean install 
+RUN cd /website && \
+    mvn clean install
 
-CMD cd /data/app && \
-    java -jar website.jar server config.yml
+CMD cd /website && \
+    java -jar target/website.jar server config.yml
 
 EXPOSE 8080

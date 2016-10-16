@@ -17,11 +17,7 @@ import java.util.EnumSet;
 public class websiteApplication extends Application<websiteConfiguration> {
 
     public static void main(final String[] args, websiteApplication application) throws Exception {
-        if(application == null){
-            new websiteApplication().run(args);
-        }else{
-            application.run(args);
-        }
+        injectAndRunApplicationClass(args, application);
     }
 
     @Override
@@ -46,4 +42,11 @@ public class websiteApplication extends Application<websiteConfiguration> {
         environment.jersey().register(new HomepageResource(httpClient));
     }
 
+    private static void injectAndRunApplicationClass(String[] args, websiteApplication application) throws Exception {
+        if(application == null){
+            new websiteApplication().run(args);
+        }else{
+            application.run(args);
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package com.uk.jacob.core;
+package com.uk.jacob.utils;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -8,10 +8,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class HttpUtils {
+public class HttpUtil {
     private HttpClient httpClient;
 
-    public HttpUtils(HttpClient httpClient){
+    public HttpUtil(HttpClient httpClient){
         this.httpClient = httpClient;
     }
 

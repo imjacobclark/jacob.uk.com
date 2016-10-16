@@ -16,18 +16,6 @@ import static org.mockito.Mockito.*;
 
 public class websiteApplicationTest {
     @Test
-    public void runShouldBeCalledWithExpectedArguments() throws Exception {
-        websiteApplication websiteApplicationUnderTest = new websiteApplication();
-        websiteApplication websiteApplicationMock = spy(websiteApplicationUnderTest);
-        doNothing().when(websiteApplicationMock).run();
-        String[] args = {};
-
-        websiteApplicationUnderTest.main(args, websiteApplicationMock);
-
-        verify(websiteApplicationMock, times(1)).run();
-    }
-
-    @Test
     public void getNameShouldReturnExpectedString() throws Exception {
         websiteApplication websiteApplicationUnderTest = new websiteApplication();
         websiteApplication websiteApplicationMock = spy(websiteApplicationUnderTest);

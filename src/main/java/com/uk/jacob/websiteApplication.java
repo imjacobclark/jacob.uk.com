@@ -16,12 +16,8 @@ import java.util.EnumSet;
 
 public class websiteApplication extends Application<websiteConfiguration> {
 
-    public static void main(final String[] args, websiteApplication application) throws Exception {
-        if(application == null){
-            new websiteApplication().run(args);
-        }else{
-            application.run(args);
-        }
+    public static void main(final String[] args) throws Exception {
+        new websiteApplication().run(args);
     }
 
     @Override

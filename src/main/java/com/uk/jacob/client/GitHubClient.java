@@ -16,7 +16,7 @@ public class GitHubClient {
 
     public Integer getRepositoriesTotalCount(final String username) throws IOException {
         // TODO: Move this URL into config
-        final String response = new HttpUtil(httpClient).doHttpGetRequest(
+        final String response = new HttpUtil(httpClient).get(
                 "https://api.github.com/users/".concat(username).concat("/repos?per_page=100")
         );
 

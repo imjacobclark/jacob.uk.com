@@ -18,7 +18,7 @@ public class HttpUtil {
         this.httpClient = httpClient;
     }
 
-    public String doHttpGetRequest(String url) throws IOException {
+    public String get(String url) throws IOException {
         long startTime = System.currentTimeMillis();
 
         String output;
@@ -32,11 +32,10 @@ public class HttpUtil {
         );
 
         while ((output = br.readLine()) != null) {
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            logger.info("Total elapsed http request/response time in milliseconds for " + url + ": " + elapsedTime);
             return output;
         }
-
-        long elapsedTime = System.currentTimeMillis() - startTime;
-        logger.debug("Total elapsed http request/response time in milliseconds for " + url + ": " + elapsedTime);
 
         return output;
     }

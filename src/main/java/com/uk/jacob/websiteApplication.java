@@ -41,11 +41,15 @@ public class websiteApplication extends Application<websiteConfiguration> {
     }
 
     protected HttpClient getHttpClient(final websiteConfiguration configuration, final Environment environment) {
-        return new HttpClientBuilder(environment).using(configuration.getHttpClientConfiguration()).build(getName());
+        return new HttpClientBuilder(environment)
+                .using(configuration.getHttpClientConfiguration())
+                .build(getName());
     }
 
     protected void registerServlets(Environment environment) {
-        environment.servlets().addFilter("AssetCacheControlFilter", new AssetCacheControlFilter())
+        environment
+                .servlets()
+                .addFilter("AssetCacheControlFilter", new AssetCacheControlFilter())
                 .addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/public/*");
     }
 }

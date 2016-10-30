@@ -1,7 +1,6 @@
 package com.uk.jacob.client;
 
 import com.uk.jacob.utils.HttpUtil;
-import org.apache.http.client.HttpClient;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -9,10 +8,6 @@ import java.io.IOException;
 
 public class NgaasClient {
     private HttpUtil httpUtil;
-
-    public NgaasClient(final HttpClient httpClient){
-        this.httpUtil = new HttpUtil(httpClient);
-    }
 
     public NgaasClient(final HttpUtil httpUtil){
         this.httpUtil = httpUtil;

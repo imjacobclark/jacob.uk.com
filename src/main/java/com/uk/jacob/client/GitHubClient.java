@@ -8,15 +8,15 @@ import java.io.IOException;
 
 
 public class GitHubClient {
-    private HttpClient httpClient;
+    private HttpUtil httpUtil;
 
-    public GitHubClient(final HttpClient httpClient){
-        this.httpClient = httpClient;
+    public GitHubClient(final HttpUtil httpUtil){
+        this.httpUtil = httpUtil;
     }
 
     public Integer getRepositoriesTotalCount(final String username) throws IOException {
         // TODO: Move this URL into config
-        final String response = new HttpUtil(httpClient).get(
+        final String response = this.httpUtil.get(
                 "https://api.github.com/users/".concat(username).concat("/repos?per_page=100")
         );
 

@@ -32,12 +32,20 @@ public class websiteApplication extends Application<websiteConfiguration> {
 
     @Override
     public void run(final websiteConfiguration configuration, final Environment environment) {
-        final HttpClient httpClient = new HttpClientBuilder(environment).using(configuration.getHttpClientConfiguration()).build(getName());
+        final HttpClient httpClient = getHttpClient(configuration, environment);
 
-        environment.servlets().addFilter("AssetCacheControlFilter", new AssetCacheControlFilter())
-                .addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/public/*");
+        registerServlets(environment);
 
         environment.jersey().register(new SecurityFilter());
         environment.jersey().register(new HomepageResource(httpClient));
+    }
+
+    protected HttpClient getHttpClient(final websiteConfiguration configuration, final Environment environment) {
+        return new HttpClientBuilder(environment).using(configuration.getHttpClientConfiguration()).build(getName());
+    }
+
+    protected void registerServlets(Environment environment) {
+        environment.servlets().addFilter("AssetCacheControlFilter", new AssetCacheControlFilter())
+                .addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/public/*");
     }
 }

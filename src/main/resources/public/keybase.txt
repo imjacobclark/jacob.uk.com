@@ -4,7 +4,7 @@ https://keybase.io/imjacobclark
 
 I hereby claim:
 
-  * I am an admin of https://jacob.uk.com
+  * I am an admin of https://jacobclark.xyz
   * I am imjacobclark (https://keybase.io/imjacobclark) on keybase.
   * I have a public key ASC6I-roqq3T9g_y5eGaHHoimiDDIZ7qgpqnjN2ZH9owfAo
 
@@ -20,7 +20,7 @@ To do so, I am signing this object:
             "username": "imjacobclark"
         },
         "service": {
-            "hostname": "jacob.uk.com",
+            "hostname": "jacobclark.xyz",
             "protocol": "https:"
         },
         "type": "web_service_binding",

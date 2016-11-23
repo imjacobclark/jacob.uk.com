@@ -17,7 +17,7 @@ public class GitHubClientTest {
     public void getRepositoryTotalCountShouldReturnAnExpectedInteger() throws IOException {
         HttpUtil httpUtilMock = mock(HttpUtil.class);
 
-        when(httpUtilMock.get(anyString())).thenReturn("[{'repoName':'jacob.uk.com'}]");
+        when(httpUtilMock.get(anyString())).thenReturn("[{'repoName':'jacobclark.xyz'}]");
 
         final GitHubClient gitHubClient = new GitHubClient(httpUtilMock);
 
@@ -28,7 +28,7 @@ public class GitHubClientTest {
     public void getRepositoryTotalCountShouldCallHttpUtilsDoHttpGetRequestOnce() throws IOException {
         HttpUtil httpUtilMock = mock(HttpUtil.class);
 
-        when(httpUtilMock.get(anyString())).thenReturn("[{'repoName':'jacob.uk.com'}]");
+        when(httpUtilMock.get(anyString())).thenReturn("[{'repoName':'jacobclark.xyz'}]");
 
         final GitHubClient gitHubClient = new GitHubClient(httpUtilMock);
 

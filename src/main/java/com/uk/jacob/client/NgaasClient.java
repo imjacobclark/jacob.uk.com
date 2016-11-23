@@ -15,7 +15,7 @@ public class NgaasClient {
 
     public String getRandomName() throws IOException {
         // TODO: Move this URL into config
-        final String response = httpUtil.get("https://ngaas.api.jacob.uk.com");
+        final String response = httpUtil.get("https://ngaas.api.jacobclark.xyz");
         final JSONObject object = new JSONObject(response);
 
         return object.get("name").toString();

@@ -1,0 +1,107 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		jcenter()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://plugins.gradle.org/m2/" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.11'
+        classpath "gradle.plugin.com.palantir:jacoco-coverage:0.4.0"
+		classpath "postgresql:postgresql:9.1-901-1.jdbc4"
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.0.BUILD-SNAPSHOT"
+		classpath "org.springframework:springloaded:1.2.6.RELEASE"
+	}
+}
+
+plugins {
+	id "com.moowork.gulp" version "1.1.1"
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: "info.solidsoft.pitest"
+apply plugin: "com.palantir.jacoco-coverage"
+apply plugin: 'idea'
+
+idea {
+	module {
+		inheritOutputDirs = false
+		outputDir = file("$buildDir/classes/main/")
+	}
+}
+
+node {
+	version = '6.10.0'
+	npmVersion = '4.4.1'
+	distBaseUrl = 'https://nodejs.org/dist'
+	download = true
+	workDir = file("${project.buildDir}/nodejs")
+	npmWorkDir = file("${project.buildDir}/npm")
+	nodeModulesDir = file("${project.projectDir}")
+}
+
+gulp_default.dependsOn 'npmInstall'
+gulp_default.dependsOn 'installGulp'
+processResources.dependsOn gulp_default
+
+jar {
+	baseName = 'website'
+	version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-mustache') {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+	compile('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: 'spring-boot-starter-tomcat'
+    }
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile("org.flywaydb:flyway-core:4.1.0")
+    compile("org.springframework.boot:spring-boot-starter-jetty:1.5.1.RELEASE")
+	compile("postgresql:postgresql:9.1-901-1.jdbc4")
+    compile('com.google.guava:guava')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.BUILD-SNAPSHOT"
+	}
+}
+
+pitest {
+    targetClasses = ['xyz.jacobclark.*']
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
+
+clean {
+	delete 'src/main/resources/static'
+}
+
+task stage {
+	dependsOn build
+}

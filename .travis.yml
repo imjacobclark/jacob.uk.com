@@ -2,12 +2,3 @@ sudo: required
 language: java
 jdk:
   - oraclejdk8
-services:
-  - docker
-after_success:
-  - mvn clean test jacoco:report coveralls:report
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker build -t imjacobclark/jacobclark.xyz .;
-      docker login --username="$DOCKER_USERNAME" --password="$DOCKER_PASSWORD";
-      docker push imjacobclark/jacobclark.xyz;
-    fi

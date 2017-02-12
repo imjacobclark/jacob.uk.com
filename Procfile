@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar target/website.jar server config.yml
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/website-0.0.1-SNAPSHOT.jar

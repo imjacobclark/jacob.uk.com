@@ -1,1 +1,1 @@
-web: rake db:migrate && bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
+web: rake db:setup && db:migrate && bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}

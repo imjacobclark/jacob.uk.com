@@ -48,5 +48,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  socket: /tmp/mysql.sock
   url: <%= ENV['JAWSDB_MARIA_URL'] %>

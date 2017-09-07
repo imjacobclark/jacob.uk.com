@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+homepage:
+  title: TestApplication
+  slug: homepage
+
+about:
+  title: About me
+  slug: about-me

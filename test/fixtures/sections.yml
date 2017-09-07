@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+weclome:
+  heading: Welcome
+  markdown: Hello World
+  page: homepage
+
+experience:
+  heading: Experience
+  markdown: Software Engineering
+  page: about

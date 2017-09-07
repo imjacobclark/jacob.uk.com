@@ -49,6 +49,4 @@ test:
 #
 production:
   <<: *default
-  database: jacobclarkxyz_production
-  username: jacobclarkxyz
-  password: <%= ENV['JACOBCLARKXYZ_DATABASE_PASSWORD'] %>
+  url: <%= ENV['JAWSDB_MARIA_URL'] %>

@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class PageControllerTest < ActionDispatch::IntegrationTest
+  test 'renders application layout' do
+    get root_url
+
+    assert_template 'page/index', 'layouts/application'
+  end
+
   test '404' do
     get root_url + 'some_unknown_endpoint'
 
@@ -35,10 +41,10 @@ class PageControllerTest < ActionDispatch::IntegrationTest
     assert_select 'h2', text: 'Experience'
   end
   
-    test 'section markdown' do
-      get root_url + 'about-me'
-      assert_response :success
-      
-      assert_select 'p', text: 'Software Engineering'
-    end
+  test 'section markdown' do
+    get root_url + 'about-me'
+    assert_response :success
+    
+    assert_select 'p', text: 'Software Engineering'
+  end
 end

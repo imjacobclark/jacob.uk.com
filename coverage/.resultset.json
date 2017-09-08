@@ -1,99 +1,137 @@
 {
   "MiniTest": {
     "coverage": {
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/models/page.rb": [
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/models/page.rb": [
         1,
         1,
         null,
         1,
-        8,
+        9,
         null,
-        8,
+        9,
+        7,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        6,
+        null,
+        null
+      ],
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/models/section.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/controllers/page_controller.rb": [
+        1,
+        1,
+        7,
+        7,
+        7,
+        null,
+        7,
+        1,
+        null,
+        null,
         6,
         null,
         null,
-        null,
+        1,
+        1,
+        7,
         null,
         null,
         1,
+        7,
+        2,
+        null,
         5,
         null,
+        null,
         null
       ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/models/application_record.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/models/section.rb": [
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/controllers/page_controller.rb": [
-        1,
-        1,
-        6,
-        6,
-        6,
-        null,
-        6,
-        1,
-        null,
-        null,
-        5,
-        null,
-        null,
-        1,
-        1,
-        6,
-        null,
-        null,
-        1,
-        6,
-        1,
-        null,
-        5,
-        null,
-        null,
-        null
-      ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/controllers/application_controller.rb": [
-        1,
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/helpers/application_helper.rb": [
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/helpers/page_helper.rb": [
         1,
+        1,
+        null,
+        1,
+        1,
+        0,
+        null,
         null
       ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/helpers/page_helper.rb": [
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/controllers/admin/pages_controller.rb": [
         1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        null,
         null
       ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/channels/application_cable/channel.rb": [
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/channels/application_cable/connection.rb": [
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/jobs/application_job.rb": [
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/jobs/application_job.rb": [
         0,
         0
       ],
-      "/Users/ClarJa8/Desktop/jacobclarkxyz/app/mailers/application_mailer.rb": [
+      "/Users/ClarJa8/Desktop/jacobclark.xyz/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1504596798
+    "timestamp": 1504883005
   }
 }

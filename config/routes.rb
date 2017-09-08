@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   get 'page/index'
+
+  namespace :admin do
+    resources :pages
+    resources :sections
+  end
+
   get '*page', to: 'page#index'
   
   root 'page#index'

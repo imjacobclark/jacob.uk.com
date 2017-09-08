@@ -1,0 +1,20 @@
+<h2>Pages</h2>
+<table border="1">
+  <tr>
+    <th>id</th>  
+    <th>Slug</th>
+    <th>Title</th>
+    <th>Actions</th>
+  </tr>
+  <% @pages.each do |page| %>
+  <tr>
+    <td><%= page.id %></td>   
+    <td>/<%= page.slug %></td>
+    <td><%= page.title %></td>
+    <td>
+      <a href="/<%= page.slug %>">View</a>
+      <%= link_to 'Edit', edit_admin_page_path(page) %>
+    </td>
+  </tr>
+  <% end %>
+</table>

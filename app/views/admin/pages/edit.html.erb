@@ -1,0 +1,19 @@
+<h1>Edit page</h1>
+
+<%= form_for [:admin, @page] do |form| %>
+  
+ <p>
+   <%= form.label :slug %><br>
+   <%= form.text_field :slug %>
+ </p>
+
+ <p>
+   <%= form.label :title %><br>
+   <%= form.text_area :title %>
+ </p>
+
+ <p>
+   <%= form.submit %>
+ </p>
+
+<% end %>

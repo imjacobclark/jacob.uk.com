@@ -1,7 +1,6 @@
 <h1>Edit page</h1>
 
-<%= form_for [:admin, @page] do |form| %>
-  
+<%= form_with(model: [ :admin, @page ]) do |form| %>  
  <p>
    <%= form.label :slug %><br>
    <%= form.text_field :slug %>

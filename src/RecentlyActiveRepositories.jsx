@@ -34,7 +34,7 @@ export default class RecentlyActiveRepositories extends React.Component {
         <ul>
           {[...this.state.repositories]
             .map(repo => JSON.parse(repo))
-            .map(repo => <Repository name={repo.name} url={repo.url} />)
+            .map(repo => <Repository name={repo.name} />)
           }
         </ul>
       </div>

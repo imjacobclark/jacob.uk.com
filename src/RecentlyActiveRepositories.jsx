@@ -16,7 +16,9 @@ export default class RecentlyActiveRepositories extends React.Component {
       .then(events => 
         this.setState({
           repositories: new Set(
-            events.map(event => 
+            events
+            .filter(event => event.type === 'PushEvent')
+            .map(event => 
               JSON.stringify({
                 name: event.repo.name.replace('imjacobclark/', ''),
                 url: event.repo.url

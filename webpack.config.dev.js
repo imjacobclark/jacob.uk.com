@@ -1,8 +1,9 @@
 const path = require('path');
 
-module.exports = {
+const server = {
     entry: './index.js',
     mode: "production",
+    target: 'node',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
@@ -21,3 +22,5 @@ module.exports = {
         ]
     }
 };
+
+module.exports = [server];

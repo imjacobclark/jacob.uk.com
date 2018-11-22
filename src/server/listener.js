@@ -1,4 +1,4 @@
-import app from './src/server'
+import app from '.'
 
 export default (appDependency = app, processDependency = process) => {
     const port = processDependency.env.PORT || 3000;

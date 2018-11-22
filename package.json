@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.config.dev.js",
-    "start": "npm run build && node dist/main.bundle.js"
+    "start": "node dist/main.bundle.js",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",

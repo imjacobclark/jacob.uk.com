@@ -2,7 +2,7 @@ import express from 'express';
 import ReactDOMServer from 'react-dom/server';
 import React from 'react';
 
-import HelloWorld from '../HelloWorld.jsx';
+import Heading from '../components/atoms/Heading.jsx';
 
 const app = express();
 
@@ -16,7 +16,7 @@ const template = application => `
 </body>
 `;
 
-const application = ReactDOMServer.renderToString(<HelloWorld />);
+const application = ReactDOMServer.renderToString(<Heading>Jacob Clark</Heading>);
 
 app.get('/', (req, res) => res.send(template(application)));
 

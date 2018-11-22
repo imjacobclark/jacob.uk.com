@@ -8,7 +8,7 @@ describe('Server routes', () => {
             .expect('Content-Type', "text/html; charset=utf-8")
             .expect(200)
             .end((err, res) => {
-                expect(res.text).toContain("Hello World!");
+                expect(res.text).toContain("Jacob Clark");
                 if (err) throw err;
             });
     });

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.config.dev.js",
-    "start": "node dist/main.bundle.js"
+    "start": "npm run build && node dist/main.bundle.js"
   },
   "repository": {
     "type": "git",

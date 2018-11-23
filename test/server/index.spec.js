@@ -1,15 +1,15 @@
 import request from 'supertest';
-import app from '../../src/server';
+import app from '../../src/server/index';
 
 describe('Server routes', () => {
-    it('/ should be a matched route', () => {
-        request(app)
-            .get('/')
-            .expect('Content-Type', "text/html; charset=utf-8")
-            .expect(200)
-            .end((err, res) => {
-                expect(res.text).toContain("Jacob Clark");
-                if (err) throw err;
-            });
-    });
+  it('/ should be a matched route', () => {
+    request(app)
+      .get('/')
+      .expect('Content-Type', 'text/html; charset=utf-8')
+      .expect(200)
+      .end((err, res) => {
+        expect(res.text).toContain('Jacob Clark');
+        if (err) throw err;
+      });
+  });
 });

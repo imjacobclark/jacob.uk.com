@@ -4,7 +4,7 @@
   "description": "Jacob Clark's personal website",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "build": "webpack --config webpack.config.dev.js",
     "start": "node dist/main.bundle.js",
     "heroku-postbuild": "npm run build"

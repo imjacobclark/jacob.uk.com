@@ -1,4 +1,13 @@
 import listener from '../../src/server/listener';
+import Dependencies from '../../src/Dependencies';
+
+const getDependencies = () => {
+  const mockApp = {
+    listen: jest.fn(),
+  };
+
+  return new Dependencies(mockApp)
+}
 
 describe('Listener', () => {
   afterEach(() => {
@@ -6,57 +15,40 @@ describe('Listener', () => {
   });
 
   it('should spawn a new server on port 3000 when process is not defined', () => {
-    const mockApp = {
-      listen: jest.fn(),
-    };
+    const dependencies = getDependencies();
 
-    listener(mockApp);
+    listener(dependencies);
 
-    expect(mockApp.listen).toBeCalledWith(3000, expect.any(Function));
+    expect(dependencies.getApp().listen).toBeCalledWith(3000, expect.any(Function));
   });
 
   it('should spawn a new server on port 3000 when process.env is not defined', () => {
-    const mockApp = {
-      listen: jest.fn(),
-    };
+    const dependencies = getDependencies();
+    process.env = {};
 
-    const mockProcess = {
-      env: {},
-    };
+    listener(dependencies);
 
-    listener(mockApp, mockProcess);
-
-    expect(mockApp.listen).toBeCalledWith(3000, expect.any(Function));
+    expect(dependencies.getApp().listen).toBeCalledWith(3000, expect.any(Function));
   });
 
   it('should spawn a new server on port 3000 when process.env.PORT is not specified', () => {
-    const mockApp = {
-      listen: jest.fn(),
-    };
+    const dependencies = getDependencies();
+    process.env = {};
 
-    const mockProcess = {
-      env: {},
-    };
+    listener(dependencies);
 
-    listener(mockApp, mockProcess);
-
-    expect(mockApp.listen).toBeCalledWith(3000, expect.any(Function));
+    expect(dependencies.getApp().listen).toBeCalledWith(3000, expect.any(Function));
   });
 
   it('should spawn a new server on port 8080 when process.env.PORT is specified', () => {
-    const mockApp = {
-      listen: jest.fn(),
+    const dependencies = getDependencies();
+    process.env = {
+      "PORT": 8080
     };
 
-    const mockProcess = {
-      env: {
-        PORT: 8080,
-      },
-    };
+    listener(dependencies);
 
-    listener(mockApp, mockProcess);
-
-    expect(mockApp.listen).toBeCalledWith(8080, expect.any(Function));
+    expect(dependencies.getApp().listen).toBeCalledWith(8080, expect.any(Function));
   });
 
   it('should log out port 8080 when process.env.PORT is specified', (done) => {
@@ -71,13 +63,13 @@ describe('Listener', () => {
       },
     };
 
-    const mockProcess = {
-      env: {
-        PORT: 8080,
-      },
+    const dependencies = new Dependencies(mockApp);
+
+    process.env = {
+      "PORT": 8080
     };
 
-    listener(mockApp, mockProcess);
+    listener(dependencies);
   });
 
   it('should log out port 3000 when process.env.PORT is not specified', (done) => {
@@ -92,12 +84,11 @@ describe('Listener', () => {
       },
     };
 
-    const mockProcess = {
-      env: {
-      },
-    };
+    const dependencies = new Dependencies(mockApp);
 
-    listener(mockApp, mockProcess);
+    process.env = {};
+
+    listener(dependencies);
   });
 
   it('should log out port 3000 when process.env is not defined', (done) => {
@@ -112,9 +103,10 @@ describe('Listener', () => {
       },
     };
 
-    const mockProcess = {
-    };
+    const dependencies = new Dependencies(mockApp);
 
-    listener(mockApp, mockProcess);
+    process.env = {};
+
+    listener(dependencies);
   });
 });

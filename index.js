@@ -1,4 +1,6 @@
 import listener from './src/server/listener';
-import app from './src/server'
+import Dependencies from './src/Dependencies';
 
-listener(app, process);
+const dependencies = new Dependencies();
+
+listener(dependencies);

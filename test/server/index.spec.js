@@ -1,9 +1,11 @@
 import request from 'supertest';
-import app from '../../src/server/index';
+import Dependencies from '../../src/Dependencies';
+
+const dependencies = new Dependencies();
 
 describe('Server routes', () => {
   it('/ should be a matched route', () => {
-    request(app)
+    request(dependencies.getApp())
       .get('/')
       .expect('Content-Type', 'text/html; charset=utf-8')
       .expect(200)

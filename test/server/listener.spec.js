@@ -6,7 +6,9 @@ const getDependencies = () => {
     listen: jest.fn(),
   };
 
-  return new Dependencies(mockApp)
+  return new Dependencies({
+    app: mockApp
+  });
 }
 
 describe('Listener', () => {
@@ -63,7 +65,9 @@ describe('Listener', () => {
       },
     };
 
-    const dependencies = new Dependencies(mockApp);
+    const dependencies = new Dependencies({
+      app: mockApp
+    });
 
     process.env = {
       "PORT": 8080
@@ -84,7 +88,9 @@ describe('Listener', () => {
       },
     };
 
-    const dependencies = new Dependencies(mockApp);
+    const dependencies = new Dependencies({
+      app: mockApp
+    });
 
     process.env = {};
 
@@ -103,8 +109,10 @@ describe('Listener', () => {
       },
     };
 
-    const dependencies = new Dependencies(mockApp);
-
+    const dependencies = new Dependencies({
+      app: mockApp
+    });
+    
     process.env = {};
 
     listener(dependencies);

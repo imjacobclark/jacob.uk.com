@@ -1,12 +1,12 @@
-import express from 'express';
-import ReactDOMServer from 'react-dom/server';
-import React from 'react';
-
 import Heading from '../components/atoms/Heading.jsx';
 
-const app = express();
+export default dependencies => {
+    const React = dependencies.getReact();
+    const ReactDOMServer = dependencies.getReactDOMServer();
+    const express = dependencies.getExpress();
+    const app = express();
 
-const template = application => `
+    const template = application => `
 <html>
     <head>
     </head>
@@ -16,8 +16,9 @@ const template = application => `
 </body>
 `;
 
-const application = ReactDOMServer.renderToString(<Heading>Jacob Clark</Heading>);
+    const application = ReactDOMServer.renderToString(<Heading>Jacob Clark</Heading>);
 
-app.get('/', (req, res) => res.send(template(application)));
-
-export default app;
+    app.get('/', (req, res) => res.send(template(application)));
+    
+    return app;
+};

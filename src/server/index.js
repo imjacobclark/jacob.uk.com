@@ -1,4 +1,4 @@
-import Heading from '../components/atoms/Heading.jsx';
+import App from '../components/App.jsx';
 
 export default dependencies => {
     const React = dependencies.getReact();
@@ -16,7 +16,7 @@ export default dependencies => {
 </body>
 `;
 
-    const application = ReactDOMServer.renderToString(<Heading>Jacob Clark</Heading>);
+    const application = ReactDOMServer.renderToString(<App />);
 
     app.get('/', (req, res) => res.send(template(application)));
     

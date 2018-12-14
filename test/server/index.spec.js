@@ -1,7 +1,6 @@
 import request from 'supertest';
 import Dependencies from '../../src/server/Dependencies';
 
-
 describe('Server routes', () => {
   it('/ should be a matched route', () => {
     const dependencies = new Dependencies();
@@ -11,7 +10,33 @@ describe('Server routes', () => {
       .expect('Content-Type', 'text/html; charset=utf-8')
       .expect(200)
       .end((err, res) => {
-        expect(res.text).toContain('Jacob Clark');
+        expect(res.text).toContain('Homepage');
+        if (err) throw err;
+      });
+  });
+
+  it('/about-me should be a matched route', () => {
+    const dependencies = new Dependencies();
+
+    request(dependencies.getApp())
+      .get('/about-me')
+      .expect('Content-Type', 'text/html; charset=utf-8')
+      .expect(200)
+      .end((err, res) => {
+        expect(res.text).toContain('About me');
+        if (err) throw err;
+      });
+  });
+
+  it('/unknown should be a matched route', () => {
+    const dependencies = new Dependencies();
+
+    request(dependencies.getApp())
+      .get('/unknown')
+      .expect('Content-Type', 'text/html; charset=utf-8')
+      .expect(200)
+      .end((err, res) => {
+        expect(res.text).toContain('404...');
         if (err) throw err;
       });
   });
@@ -35,9 +60,13 @@ describe('Express router', () => {
       send: jest.fn(),
     };
 
+    const mockReq = {
+      url: '/',
+    };
+
     const mockExpress = () => ({
       get: (route, callback) => {
-        callback(null, mockRes);
+        callback(mockReq, mockRes);
 
         expect(route).toBe('*');
         expect(mockRes.send).toBeCalledWith(expectedResponse);

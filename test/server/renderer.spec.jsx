@@ -1,6 +1,7 @@
 import renderer from '../../src/server/renderer/index.jsx';
 import Dependencies from '../../src/server/Dependencies';
 
+import {mount} from 'enzyme';
 
 describe('renderer', () => {
   it('Renders expected application body and meta data', () => {
@@ -27,5 +28,26 @@ describe('renderer', () => {
     const render = renderer(dependencies);
 
     expect(render()).toEqual(expectedResponse);
+  });
+
+  it('Renders homepage route', () => {
+    const dependencies = new Dependencies();
+    const render = renderer(dependencies);
+
+    expect(render("/")).toContain("Homepage");
+  });
+
+  it('Renders about me route', () => {
+    const dependencies = new Dependencies();
+    const render = renderer(dependencies);
+
+    expect(render("/about-me")).toContain("About me");
+  });
+
+  it('Renders not found route', () => {
+    const dependencies = new Dependencies();
+    const render = renderer(dependencies);
+
+    expect(render("/unknown")).toContain("404...");
   });
 });

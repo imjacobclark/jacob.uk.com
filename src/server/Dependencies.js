@@ -1,10 +1,11 @@
 export default class {
   constructor({
-    app, express, react, reactDOMServer, renderer,
+    app, express, react, reactDOMServer, renderer, reactRouterDom,
   } = {}) {
     this.express = express || require('express');
     this.react = react || require('react');
     this.reactDOMServer = reactDOMServer || require('react-dom/server');
+    this.reactRouterDom = reactRouterDom || require('react-router-dom');
 
     this.renderer = renderer || require('./renderer/index.jsx').default(this);
 
@@ -31,6 +32,10 @@ export default class {
 
   getReactDOMServer() {
     return this.reactDOMServer;
+  }
+
+  getReactRouterDom() {
+    return this.reactRouterDom;
   }
 
   getRenderer() {

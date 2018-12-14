@@ -1,9 +1,12 @@
 import App from '../components/App.jsx';
 
 import React from 'react';
-import {hydrate} from 'react-dom';
+import { hydrate } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
 
 hydrate(
-    <App runtime="client" />,
+    <BrowserRouter>
+        <App runtime="client" />
+    </BrowserRouter>,
     document.getElementById('jacobclarkxyz__main')
 );

@@ -4,9 +4,10 @@ export default (dependencies) => {
 
   app.use(express.static('./dist'));
 
-  const html = dependencies.getRenderer()();
-
-  app.get('*', (req, res) => res.send(html));
+  app.get('*', (req, res) => {
+    const html = dependencies.getRenderer()(req.url);
+    res.send(html);
+  });
 
   return app;
 };

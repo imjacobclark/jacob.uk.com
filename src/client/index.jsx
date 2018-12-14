@@ -1,6 +1,6 @@
 import App from '../components/App.jsx';
 
-import React from 'React';
+import React from 'react';
 import {hydrate} from 'react-dom';
 
 hydrate(

@@ -6,7 +6,7 @@ export default (dependencies) => {
 
   const html = dependencies.getRenderer()();
 
-  app.get('/', (req, res) => res.send(html));
+  app.get('*', (req, res) => res.send(html));
 
   return app;
 };

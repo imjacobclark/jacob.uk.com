@@ -39,7 +39,7 @@ describe('Express router', () => {
       get: (route, callback) => {
         callback(null, mockRes);
 
-        expect(route).toBe('/');
+        expect(route).toBe('*');
         expect(mockRes.send).toBeCalledWith(expectedResponse);
 
         done();

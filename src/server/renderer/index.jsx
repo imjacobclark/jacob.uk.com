@@ -1,4 +1,4 @@
-import App from './components/App.jsx';
+import App from '../../components/App.jsx';
 
 export default dependencies => () => {
     const React = dependencies.getReact();
@@ -9,7 +9,10 @@ export default dependencies => () => {
     <head>
     </head>
     <body>
-        ${ReactDOMServer.renderToString(<App />)}
+        <main id="jacobclarkxyz__main">
+            ${ReactDOMServer.renderToString(<App runtime="server"/>)}
+        </main>
+        <script src="client.bundle.js"></script>
     </body>
 </html>`;
 }

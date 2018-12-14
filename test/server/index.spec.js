@@ -1,5 +1,5 @@
 import request from 'supertest';
-import Dependencies from '../../src/Dependencies';
+import Dependencies from '../../src/server/Dependencies';
 
 
 describe('Server routes', () => {
@@ -24,7 +24,10 @@ describe('Express router', () => {
     <head>
     </head>
     <body>
-        Hello World
+        <main id="jacobclarkxyz__main">
+            Hello World
+        </main>
+        <script src="client.bundle.js"></script>
     </body>
 </html>`;
 
@@ -41,7 +44,10 @@ describe('Express router', () => {
 
         done();
       },
+      use: () => {},
     });
+
+    mockExpress.static = () => {};
 
     const mockReactDOMServer = {
       renderToString: () => 'Hello World',
@@ -53,5 +59,25 @@ describe('Express router', () => {
     });
 
     dependencies.getApp();
+  });
+
+  it('Serves static files from the ./dist folder', (done) => {
+    const mockExpress = () => ({
+      get: () => {},
+      use: (dir) => {
+        expect(dir).toBe('my-mocked-dir');
+        done();
+      },
+    });
+
+    mockExpress.static = jest.fn().mockReturnValue('my-mocked-dir');
+
+    const dependencies = new Dependencies({
+      express: mockExpress,
+    });
+
+    dependencies.getApp();
+
+    expect(mockExpress.static).toBeCalledWith('./dist');
   });
 });

@@ -1,5 +1,28 @@
 const path = require('path');
 
+const client = {
+    entry: './src/client/index.jsx',
+    mode: "production",
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'client.bundle.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: "babel-loader"
+            }, {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                use: "babel-loader"
+            }
+        ]
+    }
+};
+
+
 const server = {
     entry: './index.js',
     mode: "production",
@@ -24,7 +47,7 @@ const server = {
 };
 
 const lambda = {
-    entry: './src/lambda/handler.js',
+    entry: './src/server/lambda/handler.js',
     mode: "production",
     target: 'node',
     output: {
@@ -47,4 +70,4 @@ const lambda = {
     }
 };
 
-module.exports = [server, lambda];
+module.exports = [client, server, lambda];

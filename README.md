@@ -41,10 +41,12 @@ $ npm test
 
 # Heroku
 
-Deployed on the free tier of Heroku  at [http://six.jacobclark.xyz/](http://six.jacobclark.xyz/).
+Deployed on the free tier of Heroku at [http://six.jacobclark.xyz/](http://six.jacobclark.xyz/). Supports server and client side rendering.
 
 # AWS Lambda
 
-This application can be run on AWS Lambda. It currently only supports server side rendering.
+This application can be run on AWS Lambda. 
+
+It currently only supports server side rendering, whilst a client side bundle is generated and loaded up - I haven't yet written any CloudFormation to orchestrate the creation of S3 buckets to the bundle.
 
 `npm run build` will create a `dist/lambda.js` file which can be uploaded to an AWS Lambda function and fronted via an AWS API Gateway.

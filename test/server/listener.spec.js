@@ -7,9 +7,9 @@ const getDependencies = () => {
   };
 
   return new Dependencies({
-    app: mockApp
+    app: mockApp,
   });
-}
+};
 
 describe('Listener', () => {
   afterEach(() => {
@@ -45,7 +45,7 @@ describe('Listener', () => {
   it('should spawn a new server on port 8080 when process.env.PORT is specified', () => {
     const dependencies = getDependencies();
     process.env = {
-      "PORT": 8080
+      PORT: 8080,
     };
 
     listener(dependencies);
@@ -60,17 +60,17 @@ describe('Listener', () => {
 
         callback();
 
-        expect(console.log).toHaveBeenCalledWith('jacobclark.xyz is listening on port 8080!');
+        expect(console.log).toHaveBeenCalledWith('jacobclark.xyz is listening on port 8080!'); // eslint-disable-line no-console
         done();
       },
     };
 
     const dependencies = new Dependencies({
-      app: mockApp
+      app: mockApp,
     });
 
     process.env = {
-      "PORT": 8080
+      PORT: 8080,
     };
 
     listener(dependencies);
@@ -83,13 +83,13 @@ describe('Listener', () => {
 
         callback();
 
-        expect(console.log).toHaveBeenCalledWith('jacobclark.xyz is listening on port 3000!');
+        expect(console.log).toHaveBeenCalledWith('jacobclark.xyz is listening on port 3000!'); // eslint-disable-line no-console
         done();
       },
     };
 
     const dependencies = new Dependencies({
-      app: mockApp
+      app: mockApp,
     });
 
     process.env = {};
@@ -104,15 +104,15 @@ describe('Listener', () => {
 
         callback();
 
-        expect(console.log).toHaveBeenCalledWith('jacobclark.xyz is listening on port 3000!');
+        expect(console.log).toHaveBeenCalledWith('jacobclark.xyz is listening on port 3000!'); // eslint-disable-line no-console
         done();
       },
     };
 
     const dependencies = new Dependencies({
-      app: mockApp
+      app: mockApp,
     });
-    
+
     process.env = {};
 
     listener(dependencies);

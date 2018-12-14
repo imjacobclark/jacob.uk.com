@@ -1,37 +1,39 @@
 export default class {
-    constructor({app, express, react, reactDOMServer, render} = {}){
-        this.express = express ? express : require('express');
-        this.react = react ? react : require('react');
-        this.reactDOMServer = reactDOMServer ? reactDOMServer : require('react-dom/server');
-        
-        this.render = render ? render : require('./RenderApp').default(this);
+  constructor({
+    app, express, react, reactDOMServer, render,
+  } = {}) {
+    this.express = express || require('express');
+    this.react = react || require('react');
+    this.reactDOMServer = reactDOMServer || require('react-dom/server');
 
-        this.app = app ? app : require('./server/index').default(this);
+    this.render = render || require('./RenderApp.jsx').default(this);
 
-        this.process = process;
-    }
+    this.app = app || require('./server/index').default(this);
 
-    getApp(){
-        return this.app;
-    }
+    this.process = process;
+  }
 
-    getProcess() {
-        return this.process;
-    }
+  getApp() {
+    return this.app;
+  }
 
-    getExpress(){
-        return this.express;
-    }
+  getProcess() {
+    return this.process;
+  }
 
-    getReact(){
-        return this.react;
-    }
+  getExpress() {
+    return this.express;
+  }
 
-    getReactDOMServer() {
-        return this.reactDOMServer;
-    }
+  getReact() {
+    return this.react;
+  }
 
-    getRender(){
-        return this.render;
-    }
+  getReactDOMServer() {
+    return this.reactDOMServer;
+  }
+
+  getRender() {
+    return this.render;
+  }
 }

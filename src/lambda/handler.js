@@ -1,5 +1,6 @@
 // Using "import" broke the webpack transpilation and lost the handler... odd
 const Dependencies = require('../Dependencies').default;
+
 const dependencies = new Dependencies();
 
 /*
@@ -7,14 +8,14 @@ const dependencies = new Dependencies();
     Also dependencies need injecting...
 */
 exports.handler = (event, context, callback) => {
-    const html = dependencies.getRender()();
+  const html = dependencies.getRender()();
 
-    callback(null, {
-        "isBase64Encoded": false,
-        "statusCode": 200,
-        "headers": {
-            "content-type": "text/html"
-        },
-        "body": html
-    });
+  callback(null, {
+    isBase64Encoded: false,
+    statusCode: 200,
+    headers: {
+      'content-type': 'text/html',
+    },
+    body: html,
+  });
 };

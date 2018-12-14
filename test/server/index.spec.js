@@ -18,7 +18,7 @@ describe('Server routes', () => {
 });
 
 describe('Express router', () => {
-  it('Returns expected payload for (/) index route', done => {
+  it('Returns expected payload for (/) index route', (done) => {
     const expectedResponse = `
 <html>
     <head>
@@ -29,31 +29,29 @@ describe('Express router', () => {
 </html>`;
 
     const mockRes = {
-      send: jest.fn()
-    }
-
-    const mockExpress = () => {
-      return {
-        get: (route, callback) => {
-          callback(null, mockRes);
-
-          expect(route).toBe("/");
-          expect(mockRes.send).toBeCalledWith(expectedResponse);
-
-          done();
-        }
-      };
+      send: jest.fn(),
     };
 
+    const mockExpress = () => ({
+      get: (route, callback) => {
+        callback(null, mockRes);
+
+        expect(route).toBe('/');
+        expect(mockRes.send).toBeCalledWith(expectedResponse);
+
+        done();
+      },
+    });
+
     const mockReactDOMServer = {
-      renderToString: () => "Hello World"
+      renderToString: () => 'Hello World',
     };
 
     const dependencies = new Dependencies({
       express: mockExpress,
-      reactDOMServer: mockReactDOMServer
+      reactDOMServer: mockReactDOMServer,
     });
 
     dependencies.getApp();
-  })
-})
+  });
+});

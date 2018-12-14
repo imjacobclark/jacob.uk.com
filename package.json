@@ -4,7 +4,7 @@
   "description": "Jacob Clark's personal website",
   "main": "index.js",
   "scripts": {
-    "lint": "#eslint src test --fix",
+    "lint": "eslint src test --fix",
     "test": "npm run lint && jest --coverage",
     "build": "webpack --config webpack.config.dev.js",
     "start": "node dist/server.bundle.js",

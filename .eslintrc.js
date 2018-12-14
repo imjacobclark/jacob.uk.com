@@ -11,5 +11,9 @@ module.exports = {
         "ecmaFeatures": {
             "jsx": true
         }
+    },
+    "rules": {
+        "global-require": 0,
+        "max-len": 0
     }
 };

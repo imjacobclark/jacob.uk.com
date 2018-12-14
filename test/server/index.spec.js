@@ -26,8 +26,8 @@ describe('Express router', () => {
     <body>
         Hello World
     </body>
-</body>
-`
+</html>`;
+
     const mockRes = {
       send: jest.fn()
     }

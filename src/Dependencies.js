@@ -1,8 +1,10 @@
 export default class {
-    constructor({app, express, react, reactDOMServer} = {}){
+    constructor({app, express, react, reactDOMServer, render} = {}){
         this.express = express ? express : require('express');
         this.react = react ? react : require('react');
         this.reactDOMServer = reactDOMServer ? reactDOMServer : require('react-dom/server');
+        
+        this.render = render ? render : require('./RenderApp').default(this);
 
         this.app = app ? app : require('./server/index').default(this);
 
@@ -27,5 +29,9 @@ export default class {
 
     getReactDOMServer() {
         return this.reactDOMServer;
+    }
+
+    getRender(){
+        return this.render;
     }
 }

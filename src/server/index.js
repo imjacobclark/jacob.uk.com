@@ -1,24 +1,10 @@
-import App from '../components/App.jsx';
-
 export default dependencies => {
-    const React = dependencies.getReact();
-    const ReactDOMServer = dependencies.getReactDOMServer();
     const express = dependencies.getExpress();
     const app = express();
 
-    const template = application => `
-<html>
-    <head>
-    </head>
-    <body>
-        ${application}
-    </body>
-</body>
-`;
+    const html = dependencies.getRender()();
 
-    const application = ReactDOMServer.renderToString(<App />);
-
-    app.get('/', (req, res) => res.send(template(application)));
+    app.get('/', (req, res) => res.send(html));
     
     return app;
 };

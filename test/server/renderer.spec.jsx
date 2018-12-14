@@ -1,8 +1,6 @@
 import renderer from '../../src/server/renderer/index.jsx';
 import Dependencies from '../../src/server/Dependencies';
 
-import {mount} from 'enzyme';
-
 describe('renderer', () => {
   it('Renders expected application body and meta data', () => {
     const expectedResponse = `

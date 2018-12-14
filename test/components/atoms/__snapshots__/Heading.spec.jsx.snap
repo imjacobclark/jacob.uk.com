@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Server routes renders correctly 1`] = `
+exports[`Heading renders a h1 correctly 1`] = `
 <h1>
   Jacob Clark
 </h1>
+`;
+
+exports[`Heading renders a h2 correctly 1`] = `
+<h2>
+  Jacob Clark
+</h2>
 `;

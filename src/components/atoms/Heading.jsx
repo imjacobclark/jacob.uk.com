@@ -1,3 +1,6 @@
 import React from 'react';
 
-export default ({children}) => <h1>{children}</h1>
+export default ({level, children}) => {
+    const Heading = `h${level}`;
+    return <Heading>{children}</Heading>
+}

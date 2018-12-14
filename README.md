@@ -12,6 +12,7 @@ A universal React app powering [jacobclark.xyz](https://www.jacobclark.xyz).
 * Webpack
 * Babel
 * Jest
+* ESLint
 * Supertest
 
 *Both Express and Lambda runtimes are built via webpack out the box.

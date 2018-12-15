@@ -1,10 +1,10 @@
-import App from '../../components/App.jsx';
-
 export default dependencies => url => {
     const React = dependencies.getReact();
     const ReactDOMServer = dependencies.getReactDOMServer();
     const StaticRouter = dependencies.getReactRouterDom().StaticRouter;
     const context = {};
+
+    const App = dependencies.getAppComponent();
 
     return `
 <html>

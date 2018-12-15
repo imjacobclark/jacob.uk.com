@@ -8,7 +8,7 @@ const dependencies = new Dependencies();
     Also dependencies need injecting...
 */
 exports.handler = (event, context, callback) => {
-  const html = dependencies.getRenderer()();
+  const html = dependencies.getRenderer()(event.requestContext.resourcePath);
 
   callback(null, {
     isBase64Encoded: false,

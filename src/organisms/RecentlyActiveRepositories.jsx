@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 
 import Heading from '../atomics/atoms/Heading.jsx';
 import Repository from '../molecules/HyperlinkList.jsx'
@@ -31,10 +31,10 @@ export default class RecentlyActiveRepositories extends React.Component {
 
   render () {
     return (
-      <div>
+      <Fragment>
         <Heading>Recent GitHub pushes:</Heading> 
         <Repository items={[...this.state.repositories].map(JSON.parse)}/>
-      </div>
+      </Fragment>
     );
   }
 }

@@ -3,11 +3,11 @@ import './style.scss';
 import React from 'react';
 import {render} from 'react-dom';
 
-import RecentlyActiveRepositories from './organisms/RecentlyActiveRepositories.jsx'
+import GitHubStats from './organisms/GitHubStats.jsx'
 
 class App extends React.Component {
   render () {
-    return <RecentlyActiveRepositories />;
+    return <GitHubStats />;
   }
 }
 

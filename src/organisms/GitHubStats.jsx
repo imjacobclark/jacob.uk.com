@@ -3,15 +3,14 @@ import React, {Fragment} from 'react';
 import Heading from '../atomics/atoms/Heading.jsx';
 import Repository from '../molecules/HyperlinkList.jsx'
 
-export default class RecentlyActiveRepositories extends React.Component {
+export default class GitHubStats extends React.Component {
   constructor(){
     super();
-
-    this.state = {repositories: new Set()};
+    this.state = {repositories: new Set(), user: {}};
   }
 
   componentWillMount(){
-    let events = fetch('https://api.github.com/users/imjacobclark/events')
+    fetch('https://api.github.com/users/imjacobclark/events')
       .then(events => events.json())
       .then(events => 
         this.setState({
@@ -27,11 +26,22 @@ export default class RecentlyActiveRepositories extends React.Component {
           )}
         )
       );
+
+    fetch('https://api.github.com/users/imjacobclark')
+      .then(user => user.json())
+      .then(user =>
+        this.setState({
+          user: user,
+          repositories: this.state.repositories
+        })
+      );
   }
 
   render () {
     return (
       <Fragment>
+        <p>In total on GitHub I have {this.state.user.public_repos} public repositories, {this.state.user.public_gists} public gists and {this.state.user.followers} followers.</p>
+
         <Heading>Recent GitHub pushes:</Heading> 
         <Repository items={[...this.state.repositories].map(JSON.parse)}/>
       </Fragment>

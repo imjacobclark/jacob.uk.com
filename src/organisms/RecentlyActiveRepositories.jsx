@@ -1,7 +1,7 @@
 import React from 'react';
-import {render} from 'react-dom';
 
-import Repository from './Repository.jsx'
+import Heading from '../atomics/atoms/Heading.jsx';
+import Repository from '../molecules/HyperlinkList.jsx'
 
 export default class RecentlyActiveRepositories extends React.Component {
   constructor(){
@@ -21,7 +21,7 @@ export default class RecentlyActiveRepositories extends React.Component {
             .map(event => 
               JSON.stringify({
                 name: event.repo.name.replace('imjacobclark/', ''),
-                url: event.repo.url
+                href: "http://github.com/imjacobclark/" + event.repo.name.replace('imjacobclark/', '')
               })
             )
           )}
@@ -32,13 +32,8 @@ export default class RecentlyActiveRepositories extends React.Component {
   render () {
     return (
       <div>
-        <h6>Recent <a href="https://github.com/imjacobclark">GitHub</a> activity</h6> 
-        <ul>
-          {[...this.state.repositories]
-            .map(repo => JSON.parse(repo))
-            .map(repo => <Repository name={repo.name} />)
-          }
-        </ul>
+        <Heading>Recent GitHub pushes:</Heading> 
+        <Repository items={[...this.state.repositories].map(JSON.parse)}/>
       </div>
     );
   }

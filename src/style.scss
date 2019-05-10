@@ -3,7 +3,8 @@
 .jacobclarkxyz__main-wrapper {
   @extend .container;
 
-  background: #fafafa;
+  background: #24292e;
+  color: #ffffff;
   margin-top: 3em;
 }
 
@@ -17,5 +18,12 @@
 
 .jacobclarkxyz__subheading {
   font-size: 1.5em;  
-  line-height: 0;
+}
+
+.jacobclarkxyz__section {
+  margin-top: 20px;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.65098);
 }

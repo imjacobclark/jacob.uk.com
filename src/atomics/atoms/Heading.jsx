@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 export default class Heading extends React.Component {
     render(){
-        return <h6>{this.props.children}</h6>
+        const Level = this.props.level;
+        return <Level>{this.props.children}</Level>
     }
 }

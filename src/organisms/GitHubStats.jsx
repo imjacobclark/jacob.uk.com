@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 
 import Heading from '../atomics/atoms/Heading.jsx';
+import Paragraph from '../atomics/atoms/Paragraph.jsx';
 import Repository from '../molecules/HyperlinkList.jsx'
 
 export default class GitHubStats extends React.Component {
@@ -40,9 +41,9 @@ export default class GitHubStats extends React.Component {
   render () {
     return (
       <Fragment>
-        <p>In total on GitHub I have {this.state.user.public_repos} public repositories, {this.state.user.public_gists} public gists and {this.state.user.followers} followers.</p>
+        <Paragraph>In total on GitHub I have {this.state.user.public_repos} public repositories, {this.state.user.public_gists} public gists and {this.state.user.followers} followers.</Paragraph>
 
-        <Heading>Recent GitHub pushes:</Heading> 
+        <Heading level="h6">Recent GitHub project activity 💁🏻‍♂️</Heading> 
         <Repository items={[...this.state.repositories].map(JSON.parse)}/>
       </Fragment>
     );

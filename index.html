@@ -49,8 +49,8 @@
     ga('send', 'pageview');
   </script>
 
-  <link rel="stylesheet" href="dist/style.css">
-</head>
+  <link rel="preload" href="dist/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="dist/styles.css"></noscript></head>
 <body class="jacobclarkxyz__main-wrapper">
   <header class="jacobclarkxyz__header-wrapper">
     <h1 class="jacobclarkxyz__heading">I'm <b>Jacob Clark</b>.</h1>
@@ -61,8 +61,9 @@
       <h2 class="jacobclarkxyz__subheading">About Me 👋🏻</h2>
       <p>Hey, I'm Jake. I love solving problems, writing code, building teams and crafting products people love.</p>
       <p>I build systems of people and technology. I'm polyglot with a focus on engineering excellence, which means I like to work with the best tools for the job.</p>
-      <p>I'm particulaly fond of JavaScript, Java, Common Lisp, serverless, test driven development, pair proramming, agile principles, Extreme Programming, Amazon Web Services, systems thinking plus a whole lot more.</p>
-      <p>I publish thoughts on my <a href="https://blog.jacobclark.xyz" target="_blank">blog</a>.
+      <p>I'm particulaly fond of JavaScript, Java, Swift, Common Lisp, evolutionary architectures, serverless, test driven development, pair proramming, agile principles, Extreme Programming, Amazon Web Services, systems thinking plus a whole lot more.</p>
+      <p>I have a <strong>strong passion</strong> for learning, I often have my head in a book, side project, video course or conference talk...</p>
+      <p>I occasionally publish thoughts on my <a rel="noreferrer" href="https://blog.jacobclark.xyz" target="_blank">blog</a>.
     </section>
 
     <section class="jacobclarkxyz__section" id="activity">
@@ -74,9 +75,9 @@
   </main>
 
   <footer>
-    <p>&copy; Jacob Clark 2019</p>
+    <p>&copy; Jacob Clark 2020</p>
   </footer>
 
-  <script src="dist/bundle.js"></script>
+  <script defer src="dist/bundle.js"></script>
 </body>
 </html>

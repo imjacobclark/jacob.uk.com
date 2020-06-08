@@ -5,5 +5,15 @@
   "display": "standalone",
   "background_color": "#313546",
   "description": "Jacob Clark - Technologist / Software Engineer",
-  "theme_color": "#313546"
+  "theme_color": "#313546",
+  "icons": [{
+    "src": "./jacob.png",
+    "sizes": "192x192",
+    "type": "image/png",
+    "purpose": "maskable"
+  },{
+    "src": "./jacob.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
 }

@@ -6,8 +6,8 @@ self.addEventListener("install", function (e) {
         const res = cache.addAll([
           "/",
           "index.html",
-          "main.css",
-          "bundle.js",
+          "dist/main.css",
+          "dist/bundle.js",
         ]);
         
         return res;

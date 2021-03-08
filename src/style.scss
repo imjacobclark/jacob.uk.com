@@ -13,17 +13,40 @@
 }
 
 .jacobclarkxyz__heading {
-  font-size: 2.5em;
+  font-size: 3em;
+  
+  -webkit-animation: slidein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: slidein 2s; /* Firefox < 16 */
+   -ms-animation: slidein 2s; /* Internet Explorer */
+    -o-animation: slidein 2s; /* Opera < 12.1 */
+       animation: slidein 2s;
+}
+
+@keyframes slidein {
+  from { opacity: 0; margin-left: -100px; }
+  to   { opacity: 1; margin-left: 0px; }
+}
+
+main {
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 2s; /* Firefox < 16 */
+   -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+       animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .jacobclarkxyz__profile-image {
-  border-radius: 50%;
   width: 200px;
-  margin: 15px;
+  margin: 15px 15px 15px 0px;
 }
 
 .jacobclarkxyz__subheading {
-  font-size: 1.5em;  
+  font-size: 2.0em;  
 }
 
 .jacobclarkxyz__section {
@@ -31,5 +54,16 @@
 }
 
 p {
+  color: #FFF;
+}
+
+a, a:visited, a:active {
   color: rgba(255, 255, 255, 0.65098);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #FFF;
+
 }
